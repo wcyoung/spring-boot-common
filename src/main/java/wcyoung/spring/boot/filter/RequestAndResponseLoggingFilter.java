@@ -96,7 +96,7 @@ public class RequestAndResponseLoggingFilter extends OncePerRequestFilter {
     }
 
     private void logResponseHeader(ContentCachingResponseWrapper response, String remoteAddr) {
-        int status = response.getStatusCode();
+        int status = response.getStatus();
         log.debug("[{}] <== [{} {}]", remoteAddr, status, HttpStatus.valueOf(status).getReasonPhrase());
 
         response.getHeaderNames().forEach(headerName -> {
